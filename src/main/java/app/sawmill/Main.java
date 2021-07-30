@@ -36,11 +36,12 @@ public class Main {
                     Integer trunk = sawmill.remove(0);
                     List<Integer> copy = new ArrayList<>(sawmill);
                     trunks.add(copy);
-
-                    for (int i = 0; i < trunks.size(); i++) {
-                        ReplyLogic reply = logic(trunks.get(i), 0);
-                        max += reply.getMax();
-                        orders.add(reply.getOrder());
+                    if (trunk == copy.size()) {
+                        for (int i = 0; i < trunks.size(); i++) {
+                            ReplyLogic reply = logic(trunks.get(i), 0);
+                            max += reply.getMax();
+                            orders.add(reply.getOrder());
+                        }
                     }
                 } else {
                     cycle = sawmill.get(0);
